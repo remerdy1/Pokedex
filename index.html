@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <h1>Pokedex (Gen 1)</h1>
+            <input type="text" placeholder="Search(Name, ID or Type)" id="searchBar">
+        </header>
+
+        <div id="pokedex"></div>
+    </main>
+
+    <div class="modal-bg" id="modal-bg">
+        <div class="modal" id="modal">
+            <button id="modal-close-btn">X</button>
+            <header id="modal-header">
+                <h3 id="modal-name"></h3>
+                <h4 id="modal-id"></h4>
+                <h4 id="modal-type"></h4>
+            </header>
+            <section class="modal-content">
+                <div id="stats">
+                    <h4>Stats:</h4>
+                    <ul id="modal-stats" class="modal-list"></ul>
+
+                </div>
+                <br>
+                <div id="moves">
+                    <h4>Moves:</h4>
+                    <ul id="modal-moves" class="modal-list"></ul>
+                </div>
+                <img id="modal-img">
+            </section>
+
+        </div>
+    </div>
+
+    <footer>Created by Remy Thompson</footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
