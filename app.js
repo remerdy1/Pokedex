@@ -13,6 +13,9 @@ const modalStats = document.getElementById("modal-stats");
 const modalMoves = document.getElementById("modal-moves");
 const modalImg = document.getElementById("modal-img");
 
+// Prevent user clicking modal multiple times
+let clicked = false;
+
 // PokeAPI link
 const url = "https://pokeapi.co/api/v2/pokemon/"
 
@@ -51,19 +54,20 @@ const capitalizeFirst = string => string[0].toUpperCase() + string.slice(1, stri
 const showModal = e => {
     if (e.target.classList.contains("card")) {
         const card = e.target;
-        createModal(card);
+        if (clicked === false) createModal(card);
     } else if (e.target.classList.contains("type")) {
         const card = e.target.parentNode.parentNode;
-        createModal(card);
+        if (clicked === false) createModal(card);
 
     } else {
         const card = e.target.parentNode;
-        createModal(card);
+        if (clicked === false) createModal(card);
     }
 }
 
 // Adds the information to the modal
 const createModal = async card => {
+    clicked = true;
     // Empty Move and Stats lists
     modalStats.textContent = "";
     modalMoves.textContent = "";
@@ -99,6 +103,7 @@ const createModal = async card => {
         modalMoves.appendChild(listItem);
     }
     modal.style.display = "block";
+    clicked = false;
 }
 
 const closeModal = () => modal.style.display = "none";
